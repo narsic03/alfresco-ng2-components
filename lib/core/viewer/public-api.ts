@@ -17,7 +17,6 @@
 
 export * from './components/viewer.component';
 export * from './components/imgViewer.component';
-export * from './components/mediaPlayer.component';
 export * from './components/pdfViewer.component';
 export * from './components/txtViewer.component';
 export * from './components/unknown-format/unknown-format.component';
@@ -26,5 +25,7 @@ export * from './components/viewer-open-with.component';
 export * from './components/viewer-sidebar.component';
 export * from './components/viewer-toolbar.component';
 export * from './components/viewer.component';
+export { AudioViewComponent } from './components/audio-view/audio-view.component';
+export { VideoViewComponent } from './components/video-view/video-view.component';
 
 export * from './directives/viewer-extension.directive';

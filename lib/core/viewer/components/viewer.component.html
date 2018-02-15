@@ -151,8 +151,12 @@
                             <adf-img-viewer [urlFile]="urlFileContent" [nameFile]="displayName" [blobFile]="blobFile"></adf-img-viewer>
                         </ng-container>
 
-                        <ng-container *ngSwitchCase="'media'">
-                            <adf-media-player [urlFile]="urlFileContent" [mimeType]="mimeType" [blobFile]="blobFile" [nameFile]="displayName"></adf-media-player>
+                        <ng-container *ngSwitchCase="'audio'">
+                            <adf-audio-view [urlFile]="urlFileContent" [mimeType]="mimeType" [blobFile]="blobFile" [nameFile]="displayName"></adf-audio-view>
+                        </ng-container>
+
+                        <ng-container *ngSwitchCase="'video'">
+                            <adf-video-view [urlFile]="urlFileContent" [mimeType]="mimeType" [blobFile]="blobFile" [nameFile]="displayName"></adf-video-view>
                         </ng-container>
 
                         <ng-container *ngSwitchCase="'text'">

@@ -18,12 +18,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MaterialModule } from '../material.module';
 import { ToolbarModule } from '../toolbar/toolbar.module';
 import { PipeModule } from '../pipes/pipe.module';
 import { ImgViewerComponent } from './components/imgViewer.component';
-import { MediaPlayerComponent } from './components/mediaPlayer.component';
 import { PdfViewerComponent } from './components/pdfViewer.component';
 import { TxtViewerComponent } from './components/txtViewer.component';
 import { UnknownFormatComponent } from './components/unknown-format/unknown-format.component';
@@ -33,7 +33,8 @@ import { ViewerSidebarComponent } from './components/viewer-sidebar.component';
 import { ViewerToolbarComponent } from './components/viewer-toolbar.component';
 import { ViewerComponent } from './components/viewer.component';
 import { ViewerExtensionDirective } from './directives/viewer-extension.directive';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { VideoViewComponent } from './components/video-view/video-view.component';
+import { AudioViewComponent } from './components/audio-view/audio-view.component';
 
 @NgModule({
     imports: [
@@ -48,27 +49,29 @@ import { FlexLayoutModule } from '@angular/flex-layout';
         ViewerComponent,
         ImgViewerComponent,
         TxtViewerComponent,
-        MediaPlayerComponent,
         PdfViewerComponent,
         ViewerExtensionDirective,
         UnknownFormatComponent,
         ViewerToolbarComponent,
         ViewerSidebarComponent,
         ViewerOpenWithComponent,
-        ViewerMoreActionsComponent
+        ViewerMoreActionsComponent,
+        VideoViewComponent,
+        AudioViewComponent
     ],
     exports: [
         ViewerComponent,
         ImgViewerComponent,
         TxtViewerComponent,
-        MediaPlayerComponent,
         PdfViewerComponent,
         ViewerExtensionDirective,
         UnknownFormatComponent,
         ViewerToolbarComponent,
         ViewerSidebarComponent,
         ViewerOpenWithComponent,
-        ViewerMoreActionsComponent
+        ViewerMoreActionsComponent,
+        VideoViewComponent,
+        AudioViewComponent
     ]
 })
 export class ViewerModule {

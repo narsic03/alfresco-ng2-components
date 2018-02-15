@@ -205,10 +205,11 @@ export class ViewerComponent implements OnChanges {
 
     // Extensions that are supported by the Viewer without conversion
     private extensions = {
-        image: ['png', 'jpg', 'jpeg', 'gif', 'bpm', 'svg'],
-        media: ['wav', 'mp4', 'mp3', 'webm', 'ogg'],
         text: ['txt', 'xml', 'js', 'html', 'json', 'ts'],
-        pdf: ['pdf']
+        pdf: ['pdf'],
+        image: ['png', 'jpg', 'jpeg', 'gif', 'bpm', 'svg'],
+        audio: ['wav', 'mp3', 'webm', 'ogg'],
+        video: ['mp4']
     };
 
     // Mime types that are supported by the Viewer without conversion
@@ -216,7 +217,8 @@ export class ViewerComponent implements OnChanges {
         text: ['text/plain', 'text/csv', 'text/xml', 'text/html', 'application/x-javascript'],
         pdf: ['application/pdf'],
         image: ['image/png', 'image/jpeg', 'image/gif', 'image/bmp', 'image/svg+xml'],
-        media: ['video/mp4', 'video/webm', 'video/ogg', 'audio/mpeg', 'audio/ogg', 'audio/wav']
+        audio: ['video/webm', 'video/ogg', 'audio/mpeg', 'audio/ogg', 'audio/wav'],
+        video: ['video/mp4']
     };
 
     constructor(private apiService: AlfrescoApiService,
@@ -382,20 +384,11 @@ export class ViewerComponent implements OnChanges {
             return 'custom';
         }
 
-        if (this.extensions.image.indexOf(extension) >= 0) {
-            return 'image';
-        }
-
-        if (this.extensions.media.indexOf(extension) >= 0) {
-            return 'media';
-        }
-
-        if (this.extensions.text.indexOf(extension) >= 0) {
-            return 'text';
-        }
-
-        if (this.extensions.pdf.indexOf(extension) >= 0) {
-            return 'pdf';
+        const editorTypes = Object.keys(this.extensions);
+        for (let type of editorTypes) {
+            if (this.extensions[type].indexOf(extension) >= 0) {
+                return type;
+            }
         }
 
         return 'unknown';

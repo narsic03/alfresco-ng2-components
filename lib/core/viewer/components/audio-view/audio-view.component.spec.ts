@@ -17,20 +17,20 @@
 
 import { SimpleChange } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MediaPlayerComponent } from './mediaPlayer.component';
+import { AudioViewComponent } from './audio-view.component';
 
 import {
     AlfrescoApiService,
     AuthenticationService,
     ContentService,
     SettingsService
-} from '../../services';
+} from '../../../services';
 
 describe('Test Media player component ', () => {
 
-    let component: MediaPlayerComponent;
+    let component: AudioViewComponent;
     let service: ContentService;
-    let fixture: ComponentFixture<MediaPlayerComponent>;
+    let fixture: ComponentFixture<AudioViewComponent>;
 
     function createFakeBlob() {
         let data = atob('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==');
@@ -40,7 +40,7 @@ describe('Test Media player component ', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
 
-            declarations: [MediaPlayerComponent],
+            declarations: [AudioViewComponent],
             providers: [
                 SettingsService,
                 AuthenticationService,
@@ -51,7 +51,7 @@ describe('Test Media player component ', () => {
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(MediaPlayerComponent);
+        fixture = TestBed.createComponent(AudioViewComponent);
 
         component = fixture.componentInstance;
         fixture.detectChanges();

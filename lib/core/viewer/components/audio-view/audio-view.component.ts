@@ -16,16 +16,16 @@
  */
 
 import { Component, Input, OnChanges, SimpleChanges, ViewEncapsulation } from '@angular/core';
-import { ContentService } from '../../services/content.service';
+import { ContentService } from '../../../services/content.service';
 
 @Component({
-    selector: 'adf-media-player',
-    templateUrl: './mediaPlayer.component.html',
-    styleUrls: ['./mediaPlayer.component.scss'],
-    host: { 'class': 'adf-media-player' },
+    selector: 'adf-audio-view',
+    templateUrl: 'audio-view.component.html',
+    styleUrls: ['audio-view.component.scss'],
+    host: { 'class': 'adf-audio-view' },
     encapsulation: ViewEncapsulation.None
 })
-export class MediaPlayerComponent implements OnChanges {
+export class AudioViewComponent implements OnChanges {
 
     @Input()
     urlFile: string;
