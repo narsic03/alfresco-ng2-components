@@ -17,6 +17,7 @@
 
 import { NgModule } from '@angular/core';
 import { MatDatetimepickerModule, MatNativeDatetimeModule } from '@mat-datetimepicker/core';
+import { MatSliderModule } from '@angular/material/slider';
 
 import {
     MatAutocompleteModule, MatButtonModule, MatCardModule, MatCheckboxModule,
@@ -34,7 +35,8 @@ export function modules() {
         MatInputModule, MatListModule, MatNativeDateModule, MatOptionModule, MatProgressSpinnerModule, MatRadioModule,
         MatRippleModule, MatSelectModule, MatSlideToggleModule, MatTableModule, MatTabsModule,
         MatMenuModule, MatProgressBarModule, MatSidenavModule, MatSnackBarModule, MatToolbarModule,
-        MatTooltipModule, MatDatetimepickerModule, MatNativeDatetimeModule
+        MatTooltipModule, MatDatetimepickerModule, MatNativeDatetimeModule,
+        MatSliderModule
     ];
 }
 

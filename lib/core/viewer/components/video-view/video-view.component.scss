@@ -1,7 +1,63 @@
 .adf-video-view {
-    figure {
+    display: flex;
+
+    .player {
+
+        // padding: 10px;
         display: flex;
-        flex: 1;
-        max-height: 90vh;
+        flex-direction: column;
+        // background-color: green;
+
+        &__content {
+            display: flex;
+            width: 100%;
+            background-color: lightgray;
+        }
+
+        &__video {
+            display: flex;
+            height: auto;
+            width: 100%;
+        }
+
+        &__range {
+            // background-color: blueviolet;
+
+            .mat-slider {
+                width: 100%;
+                padding: 0;
+
+                .mat-slider-wrapper {
+                    left: 0;
+                    right: 0;
+
+                    .mat-slider-track-wrapper {
+                        height: 4px;
+
+                        .mat-slider-track-background {
+                            height: 4px;
+                        }
+                        .mat-slider-track-fill {
+                            height: 4px;
+                            background-color: red;
+                        }
+                    }
+
+                    .mat-slider-thumb-container {
+                        display: none;
+                    }
+
+                    .mat-slider-ticks-container {
+                        display: none;
+                    }
+
+                }
+            }
+        }
+
+        &__controls {
+            width: 100%;
+            background-color: orange
+        }
     }
 }
