@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-import { Component, Input, OnChanges, SimpleChanges, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, ViewEncapsulation, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { ContentService } from '../../../services/content.service';
 
 @Component({
@@ -25,7 +25,10 @@ import { ContentService } from '../../../services/content.service';
     host: { 'class': 'adf-video-view' },
     encapsulation: ViewEncapsulation.None
 })
-export class VideoViewComponent implements OnChanges {
+export class VideoViewComponent implements OnChanges, AfterViewInit {
+
+    @ViewChild('video')
+    videoRef: ElementRef;
 
     @Input()
     urlFile: string;
@@ -51,5 +54,10 @@ export class VideoViewComponent implements OnChanges {
         if (!this.urlFile && !this.blobFile) {
             throw new Error('Attribute urlFile or blobFile is required');
         }
+    }
+
+    ngAfterViewInit() {
+        // const video: HTMLVideoElement = this.videoRef.nativeElement;
+        // video.controls = false;
     }
 }

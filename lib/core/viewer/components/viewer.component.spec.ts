@@ -18,27 +18,17 @@
 import { Location } from '@angular/common';
 import { SpyLocation } from '@angular/common/testing';
 import { Component } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { Observable } from 'rxjs/Rx';
 import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
-import { AlfrescoApiService, RenditionsService } from '../../services';
 
+import { AlfrescoApiService, RenditionsService } from '../../services';
 import { MaterialModule } from './../../material.module';
 import { ToolbarModule } from '../../toolbar/toolbar.module';
-
-import { Observable } from 'rxjs/Observable';
 import { EventMock } from '../../mock/event.mock';
 import { RenderingQueueServices } from '../services/rendering-queue.services';
-import { ImgViewerComponent } from './imgViewer.component';
-import { MediaPlayerComponent } from './mediaPlayer.component';
-import { PdfViewerComponent } from './pdfViewer.component';
-import { TxtViewerComponent } from './txtViewer.component';
-import { UnknownFormatComponent } from './unknown-format/unknown-format.component';
-import { ViewerMoreActionsComponent } from './viewer-more-actions.component';
-import { ViewerOpenWithComponent } from './viewer-open-with.component';
-import { ViewerSidebarComponent } from './viewer-sidebar.component';
-import { ViewerToolbarComponent } from './viewer-toolbar.component';
 import { ViewerComponent } from './viewer.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import 'rxjs/add/observable/throw';
+import { ViewerModule } from '../viewer.module';
 
 @Component({
     selector: 'adf-viewer-container-toolbar',
@@ -123,20 +113,11 @@ describe('ViewerComponent', () => {
         TestBed.configureTestingModule({
             imports: [
                 ToolbarModule,
+                ViewerModule,
                 MaterialModule,
                 FlexLayoutModule
             ],
             declarations: [
-                ViewerComponent,
-                PdfViewerComponent,
-                TxtViewerComponent,
-                MediaPlayerComponent,
-                ImgViewerComponent,
-                UnknownFormatComponent,
-                ViewerSidebarComponent,
-                ViewerToolbarComponent,
-                ViewerOpenWithComponent,
-                ViewerMoreActionsComponent,
                 ViewerWithCustomToolbarComponent,
                 ViewerWithCustomSidebarComponent,
                 ViewerWithCustomOpenWithComponent,
@@ -537,7 +518,7 @@ describe('ViewerComponent', () => {
 
                 fixture.whenStable().then(() => {
                     fixture.detectChanges();
-                    expect(element.querySelector('adf-media-player')).not.toBeNull();
+                    expect(element.querySelector('adf-video-view')).not.toBeNull();
                 });
             }));
 
@@ -548,7 +529,7 @@ describe('ViewerComponent', () => {
 
                 fixture.whenStable().then(() => {
                     fixture.detectChanges();
-                    expect(element.querySelector('adf-media-player')).not.toBeNull();
+                    expect(element.querySelector('adf-audio-view')).not.toBeNull();
                 });
             }));
 
@@ -559,7 +540,7 @@ describe('ViewerComponent', () => {
 
                 fixture.whenStable().then(() => {
                     fixture.detectChanges();
-                    expect(element.querySelector('adf-media-player')).not.toBeNull();
+                    expect(element.querySelector('adf-audio-view')).not.toBeNull();
                 });
             }));
 
@@ -637,7 +618,7 @@ describe('ViewerComponent', () => {
                 });
             }));
 
-            it('should display the media player if the file identified by mimetype is a media when the filename has wrong extension', async(() => {
+            it('should display the video player if the file identified by mimetype is a video when the filename has wrong extension', async(() => {
                 component.urlFile = 'content.bin';
                 component.mimeType = 'video/mp4';
                 fixture.detectChanges();
@@ -645,7 +626,7 @@ describe('ViewerComponent', () => {
 
                 fixture.whenStable().then(() => {
                     fixture.detectChanges();
-                    expect(element.querySelector('adf-media-player')).not.toBeNull();
+                    expect(element.querySelector('adf-video-view')).not.toBeNull();
                 });
             }));
 
@@ -662,7 +643,7 @@ describe('ViewerComponent', () => {
                 });
             }));
 
-            it('should display the media player if the file identified by mimetype is a media when the filename has no extension', async(() => {
+            it('should display the video player if the file identified by mimetype is a video when the filename has no extension', async(() => {
                 component.urlFile = 'content';
                 component.mimeType = 'video/mp4';
                 fixture.detectChanges();
@@ -670,7 +651,7 @@ describe('ViewerComponent', () => {
 
                 fixture.whenStable().then(() => {
                     fixture.detectChanges();
-                    expect(element.querySelector('adf-media-player')).not.toBeNull();
+                    expect(element.querySelector('adf-video-view')).not.toBeNull();
                 });
             }));
         });
