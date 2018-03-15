@@ -10,7 +10,7 @@
     "experimentalDecorators": true,
     "skipLibCheck": true,
     "noUnusedLocals": true,
-    "target": "es5",
+    "target": "es6",
     "allowSyntheticDefaultImports": true,
     "typeRoots": [
       "node_modules/@types"
