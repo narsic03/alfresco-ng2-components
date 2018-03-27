@@ -31,6 +31,8 @@ import {
     MatRippleModule,
     MatExpansionModule,
     MatSelectModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
     MatSlideToggleModule
 } from '@angular/material';
 
@@ -50,7 +52,9 @@ export function modules() {
         MatOptionModule,
         MatExpansionModule,
         MatSelectModule,
-        MatSlideToggleModule
+        MatCheckboxModule,
+        MatDatepickerModule,
+        MatSlideToggleModule,
     ];
 }
 

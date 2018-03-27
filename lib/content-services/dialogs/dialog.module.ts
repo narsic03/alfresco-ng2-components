@@ -21,11 +21,14 @@ import { MaterialModule } from '../material.module';
 
 import { DownloadZipDialogComponent } from './download-zip.dialog';
 import { FolderDialogComponent } from './folder.dialog';
+import { NodeLockDialogComponent } from './node-lock.dialog';
 import { ShareDialogComponent } from './share.dialog';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
-import { NodesApiService, NotificationService, TranslationService } from '@alfresco/adf-core';
+import { NodesApiService, NotificationService, TranslationService, FormModule } from '@alfresco/adf-core';
+import { MatDatetimepickerModule } from '@mat-datetimepicker/core';
+import { MatMomentDatetimeModule } from "@mat-datetimepicker/moment";
 
 @NgModule({
     imports: [
@@ -33,11 +36,15 @@ import { NodesApiService, NotificationService, TranslationService } from '@alfre
         MaterialModule,
         TranslateModule,
         FormsModule,
-        ReactiveFormsModule
+        FormModule,
+        ReactiveFormsModule,
+        MatMomentDatetimeModule,
+        MatDatetimepickerModule
     ],
     declarations: [
         DownloadZipDialogComponent,
         FolderDialogComponent,
+        NodeLockDialogComponent,
         ShareDialogComponent
     ],
     providers: [
@@ -48,11 +55,13 @@ import { NodesApiService, NotificationService, TranslationService } from '@alfre
     exports: [
         DownloadZipDialogComponent,
         FolderDialogComponent,
+        NodeLockDialogComponent,
         ShareDialogComponent
     ],
     entryComponents: [
         DownloadZipDialogComponent,
         FolderDialogComponent,
+        NodeLockDialogComponent,
         ShareDialogComponent
     ]
 })
